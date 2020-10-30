@@ -24,7 +24,7 @@ import com.atguigu.gmall.common.bean.PageParamVo;
  *
  * @author wang
  * @email wang@atguigu.com
- * @date 2020-10-27 19:18:22
+ * @date 2020-10-28 09:41:17
  */
 @Api(tags = "优惠券分类关联 管理")
 @RestController

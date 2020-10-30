@@ -1,10 +1,12 @@
 package com.atguigu.gmall.pms.service;
 
+import com.atguigu.gmall.pms.vo.GroupVo;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.atguigu.gmall.common.bean.PageResultVo;
 import com.atguigu.gmall.common.bean.PageParamVo;
 import com.atguigu.gmall.pms.entity.AttrGroupEntity;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -12,10 +14,12 @@ import java.util.Map;
  *
  * @author wang
  * @email wang@atguigu.com
- * @date 2020-10-27 19:15:46
+ * @date 2020-10-28 09:37:51
  */
 public interface AttrGroupService extends IService<AttrGroupEntity> {
 
     PageResultVo queryPage(PageParamVo paramVo);
+
+    List<GroupVo> queryByCid(Long cid);
 }
 

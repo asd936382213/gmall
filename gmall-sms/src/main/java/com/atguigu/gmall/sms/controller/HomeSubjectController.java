@@ -24,7 +24,7 @@ import com.atguigu.gmall.common.bean.PageParamVo;
  *
  * @author wang
  * @email wang@atguigu.com
- * @date 2020-10-27 19:18:22
+ * @date 2020-10-28 09:41:17
  */
 @Api(tags = "首页专题表【jd首页下面很多专题，每个专题链接新的页面，展示专题商品信息】 管理")
 @RestController

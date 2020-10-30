@@ -5,6 +5,7 @@ import com.atguigu.gmall.common.bean.PageResultVo;
 import com.atguigu.gmall.common.bean.PageParamVo;
 import com.atguigu.gmall.pms.entity.CategoryEntity;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -12,10 +13,12 @@ import java.util.Map;
  *
  * @author wang
  * @email wang@atguigu.com
- * @date 2020-10-27 19:15:46
+ * @date 2020-10-28 09:37:51
  */
 public interface CategoryService extends IService<CategoryEntity> {
 
     PageResultVo queryPage(PageParamVo paramVo);
+
+    List<CategoryEntity> queryCategory(Long parentId);
 }
 

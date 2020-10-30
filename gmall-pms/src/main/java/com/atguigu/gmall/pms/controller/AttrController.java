@@ -2,6 +2,7 @@ package com.atguigu.gmall.pms.controller;
 
 import java.util.List;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,7 @@ import com.atguigu.gmall.common.bean.PageParamVo;
  *
  * @author wang
  * @email wang@atguigu.com
- * @date 2020-10-27 19:15:46
+ * @date 2020-10-28 09:37:51
  */
 @Api(tags = "商品属性 管理")
 @RestController
@@ -33,6 +34,23 @@ public class AttrController {
 
     @Autowired
     private AttrService attrService;
+
+    @GetMapping("category/{cid}")
+    @ApiOperation("分类查询")
+    public ResponseVo<List<AttrEntity>> queryAttrsByCid(@PathVariable("cid")Long cid,
+                                                        @RequestParam(value = "type", required = false)Integer type,
+                                                        @RequestParam(value = "searchType", required = false) Integer searchType){
+        List<AttrEntity> attrEntities = attrService.queryAttrsByCid(cid,type,searchType);
+        return ResponseVo.ok(attrEntities);
+    }
+
+    @GetMapping("group/{gid}")
+    @ApiOperation("分页查询")
+    public ResponseVo<List<AttrEntity>> queryAttrsByGid(@PathVariable("gid")Long gid){
+
+        List<AttrEntity> attrEntities = attrService.list(new QueryWrapper<AttrEntity>().eq("group_id",gid));
+        return ResponseVo.ok(attrEntities);
+    }
 
     /**
      * 列表

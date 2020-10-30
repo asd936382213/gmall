@@ -4,6 +4,7 @@ import java.util.List;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,7 +25,7 @@ import com.atguigu.gmall.common.bean.PageParamVo;
  *
  * @author wang
  * @email wang@atguigu.com
- * @date 2020-10-27 19:15:46
+ * @date 2020-10-28 09:37:51
  */
 @Api(tags = "商品三级分类 管理")
 @RestController
@@ -33,6 +34,13 @@ public class CategoryController {
 
     @Autowired
     private CategoryService categoryService;
+
+    @GetMapping("parent/{parentId}")
+    @ApiParam("根据父id查询分类")
+    public ResponseVo<List<CategoryEntity>> queryCategory(@PathVariable("parentId") Long parentId){
+        List<CategoryEntity> categoryEntities = categoryService.queryCategory(parentId);
+        return ResponseVo.ok(categoryEntities);
+    }
 
     /**
      * 列表
