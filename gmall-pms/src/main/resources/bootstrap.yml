@@ -8,3 +8,6 @@ spring:
         namespace: a71dc253-bd87-4efc-bf52-bcba0e98786e
         group: dev
         file-extension: yml  # 默认找服务名.properties文件
+
+
+

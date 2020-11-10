@@ -38,12 +38,11 @@ public class SkuController {
     /**
      * 根据spuId查询sku列表
      */
-    @GetMapping("spu/{spuId}")
     @ApiOperation("根据spuId查询sku列表")
-    public ResponseVo<List<SkuEntity>> list(@PathVariable("spuId")Long spuId){
-        List<SkuEntity> list = skuService.list(new QueryWrapper<SkuEntity>().eq("spu_id", spuId));
-
-        return ResponseVo.ok(list);
+    @GetMapping("spu/{spuId}")
+    public ResponseVo<List<SkuEntity>> querySkusBySpuId(@PathVariable("spuId")Long spuId){
+        List<SkuEntity> skuEntities = this.skuService.list(new QueryWrapper<SkuEntity>().eq("spu_id", spuId));
+        return ResponseVo.ok(skuEntities);
     }
 
     /**

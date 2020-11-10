@@ -23,7 +23,7 @@ import com.atguigu.gmall.common.bean.PageParamVo;
  * sku销售属性&值
  *
  * @author wang
- * @email wang@atguigu.com
+ * @email wang@atguigu.com 9
  * @date 2020-10-28 09:37:51
  */
 @Api(tags = "sku销售属性&值 管理")
@@ -33,6 +33,13 @@ public class SkuAttrValueController {
 
     @Autowired
     private SkuAttrValueService skuAttrValueService;
+
+    @GetMapping("search/{cid}/{skuId}")
+    public ResponseVo<List<SkuAttrValueEntity>> querySearchSkuAttrValuesByCidAndSkuId(
+            @PathVariable("cid")Long cid ,@PathVariable("skuId")Long skuId ){
+        List<SkuAttrValueEntity> skuAttrValueEntities =  skuAttrValueService.querySearchSkuAttrValuesByCidAndSkuId(cid,skuId);
+        return ResponseVo.ok(skuAttrValueEntities);
+    }
 
     /**
      * 列表
